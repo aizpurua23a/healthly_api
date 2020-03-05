@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1 Date: #{day.date_day}
+
+  p #[strong Weight: ] #{ day.weight}
+  p #[strong Food:] #{day.food}
+  
+  a(href=day.url+'/update') Update Day

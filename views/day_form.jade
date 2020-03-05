@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='date') Date: 
+      input#date.form-control(type='date', placeholder='Day' name='date' required='true' value=date)
+    div.form-group
+      label(for='weight') Weight: 
+      input#weight.form-control(type='number' step='.1' placeholder='Weight' name='weight' required='true' value=(undefined===day ? '': day.weight))
+    div.form-group
+      label(for='food') Food Today: 
+      input#food.form-control(type='text' placeholder='Food' name='food' required='true' value=(undefined===day ? '': day.food))
+        
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg
