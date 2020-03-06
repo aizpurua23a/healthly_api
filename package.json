@@ -19,7 +19,7 @@
     "json": "^9.0.6",
     "moment": "^2.24.0",
     "mongoose": "~5.8.9",
-    "morgan": "~1.0.0",
+    "morgan": "~1.9.1",
     "static-favicon": "~1.0.0"
   },
   "devDependencies": {
