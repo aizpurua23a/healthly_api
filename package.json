@@ -4,7 +4,7 @@
   "private": true,
   "engines": {
     "node": "^8.10.0"
-  }
+  },
   "scripts": {
     "start": "nodejs ./bin/www",
     "test": "jest"
