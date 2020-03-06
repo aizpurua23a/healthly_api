@@ -14,7 +14,7 @@ var DaySchema = new Schema(
 DaySchema
 .virtual('url')
 .get(function () {
-  return '/registry/day/' + this._id;
+  return '/registry/day/' + moment(this.date).format('YYYY-MM-DD');
 });
 
 //Virtual for date_day

@@ -7,10 +7,8 @@ var day_controller = require('../controllers/dayController');
 // GET catalog home page.
 router.get('/', day_controller.index);
 router.get('/days', day_controller.day_list);
-router.get('/days/create', day_controller.day_create_get);
-router.post('/days/create', day_controller.day_create_post);
-router.get('/day/:id',day_controller.day_details);
-router.get('/day/:id/update', day_controller.day_update_get);
-router.post('/day/:id/update', day_controller.day_update_post);
+router.get('/day/:date',day_controller.day_details);
+router.post('/day/create', day_controller.day_create_post);
+router.post('/day/:date/update', day_controller.day_update_post);
 
 module.exports = router;

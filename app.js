@@ -5,9 +5,7 @@ var cookieParser = require('cookie-parser');
 var createError = require('http-errors');
 var bodyParser = require('body-parser');
 
-var indexRouter = require('./routes/index');
 var registryRouter = require('./routes/registry');
-var usersRouter = require('./routes/users');
 
 //compressor
 var compression = require('compression');
@@ -42,11 +40,9 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
 app.use('/registry', registryRouter);
-app.use('/users', usersRouter);
 
-/// catch 404 and forwarding to error handler
+// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
@@ -62,7 +58,7 @@ if (app.get('env') === 'development') {
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
-            error: err
+            error: err,
         });
     });
 }
