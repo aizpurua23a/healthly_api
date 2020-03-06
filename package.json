@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "engines": {
-    "node": "^8.10.0"
+    "node": "^10.0",
+    "yarn": "1.x",
   },
   "scripts": {
-    "start": "nodejs ./bin/www",
+    "start": "node ./bin/www",
     "test": "jest"
   },
   "dependencies": {
