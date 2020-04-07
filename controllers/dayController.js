@@ -30,7 +30,6 @@ exports.day_list = function (req,res){
 
 //GET DAY
 exports.day_details = function (req,res,next){
-  console.log(req.params.date);
   Day.find({date: req.params.date})
   .exec( function (err, day_content ){
     res.json(day_content);
@@ -86,7 +85,7 @@ exports.day_create_post = [
 ];
 
 //POST DAY UPDATE MODULE
-exports.day_update_post = [
+exports.day_update_put = [
    //validate fields
    body('date', 'Date must be a valid date.').isISO8601().trim(),
    body('weight', 'Weight must be provided.').exists().trim(),
@@ -135,4 +134,10 @@ exports.day_update_post = [
    }
 ];
 
-//DELETE - TODO
+//DELETE
+exports.day_delete = function (req,res,next){
+  Day.deleteOne({date: req.params.date})
+  .exec( function (err){
+    res.status(200).end();
+  });
+};
