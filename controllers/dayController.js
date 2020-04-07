@@ -41,7 +41,12 @@ exports.day_list = function (req,res){
 exports.day_details = function (req,res,next){
   Day.find({date: req.params.date})
   .exec( function (err, day_content ){
-    res.json(day_content);
+    day = {
+      date: day_content.date.toISOString().slice(0,10),
+      food: day.food,
+      weight: day.weight,
+    }
+    res.json(day);
   });
 };
 
