@@ -42,9 +42,9 @@ exports.day_details = function (req,res,next){
   Day.find({date: req.params.date})
   .exec( function (err, day_content ){
     day = {
-      date: day_content.date.toISOString().slice(0,10),
-      food: day.food,
-      weight: day.weight,
+      date: day_content[0].date.toISOString().slice(0,10),
+      food: day_content[0].food,
+      weight: day_content[0].weight,
     }
     res.json(day);
   });
