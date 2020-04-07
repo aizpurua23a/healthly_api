@@ -24,7 +24,16 @@ exports.index = function(req, res, next) {
 exports.day_list = function (req,res){
   Day.find({})
   .exec(function(err, days_in_db){
-    res.json(days_in_db);
+    days = []
+    for (var i = 0; i < days_in_db.length; i++){
+      days[i] = {
+        date: days_in_db[i].date.toISOString().slice(0,10),
+        food: days_in_db[i].food,
+        weight: days_in_db[i].weight
+      }
+    }
+    
+    res.json(days);
   });
 };
 
