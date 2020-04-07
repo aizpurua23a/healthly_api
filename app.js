@@ -6,6 +6,7 @@ var createError = require('http-errors');
 var bodyParser = require('body-parser');
 
 var registryRouter = require('./routes/registry');
+var indexRouter = require('./routes/index')
 
 //compressor
 var compression = require('compression');
@@ -40,6 +41,7 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/', indexRouter)
 app.use('/registry', registryRouter);
 
 // catch 404 and forwarding to error handler
